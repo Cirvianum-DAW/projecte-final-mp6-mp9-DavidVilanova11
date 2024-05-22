@@ -3,82 +3,67 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
+    <title>Login</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-
   </head>
   <body>
-    <!-- Contenido principal -->
-    <main class="flex-1 flex flex-col overflow-hidden" id="background">
-
+    <!-- Main Content -->
+    <main class="flex flex-col min-h-screen bg-gray-100" id="background">
+      
       <!-- Header -->
-      <header id="header" class="bg-gray-200 p-4 flex items-center justify-between w-full shrink-0">
-        <!-- Logotipo a la izquierda -->
+      <header id="header" class="bg-gray-200 p-4 flex items-center justify-between w-full">
+        <!-- Logo on the left -->
         <picture>
-          <img src="/Public/img/logo_final.svg" alt="Logo" class="animated-logo pl-2  w-20 h-auto">
+          <img src="/Public/img/logo_final.svg" alt="Logo" class="animated-logo pl-2 w-20 h-auto">
         </picture>
-        <!-- Links -->
-        <h1 class="text-2xl font-bold flex items-center justify-center w-full">Home</h1>
+        <!-- Title -->
+        <h1 class="text-2xl font-bold flex items-center justify-center w-full">Login</h1>
+        <!-- Navigation -->
         <nav>
-
           <div id="burger-icon" class="text-4xl">&#9776;</div>
-
-          <ul id="header-links" class="flex space
-          -x-4">
-            <!-- Los enlaces del header se agregarán o quitarán dinámicamente aquí -->
+          <ul id="header-links" class="flex space-x-4">
+            <!-- Header links will be dynamically added or removed here -->
           </ul>
         </nav>
       </header>
-
-      <!-- Contenedor del Aside y Contenido central -->
-      <div id="container" class="flex flex-1">
-
-        <!-- Aside (izquierda) debajo del header -->
-        <aside id="aside" class="bg-gray-800 text-white w-1/6 p-4">
-          <ul>
-            <li class="mb-2">
-              <a href="index.html" class="block p-2 bg-gray-600 rounded">Home (actual)</a>
-            </li>
-            <li class="mb-2">
-              <a href="productes.html" class="block p-2 bg-gray-600 rounded">Productes</a>
-            </li>
-            <li class="mb-2">
-              <a href="quisom.html" class="block p-2 bg-gray-600 rounded">Qui sóm?</a>
-            </li>
-            <li class="mb-2">
-              <a href="enllaços.html" class="block p-2 bg-gray-600 rounded">Enllaços</a>
-            </li>
-            <li class="mb-2">
-              <a href="login.html" class="block p-2 bg-gray-600 rounded">Login</a>
-            </li>
-          </ul>
-        </aside>
-
-        <!-- Contenido central con imagen de fondo -->
-        <section class="flex-1 bg-cover bg-center md:min-h-screen bg-primary">
-          <img src="https://wrestlingheadlines.com/wp-content/uploads/2021/05/ROH-2-1140x570.jpeg" alt="World's Best" class="clip-image float-end m-6">
-          <!-- Puedes añadir más contenido aquí -->
+      
+      <!-- Main Container -->
+      <div id="container" class="flex flex-1 items-center justify-center">
+        
+        <!-- Login Form -->
+        <section class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+          <h2 class="text-2xl font-bold mb-6 text-center">Login to Your Account</h2>
+          <form>
+            <div class="mb-4">
+              <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email:</label>
+              <input type="email" id="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+            </div>
+            <div class="mb-6">
+              <label for="password" class="block text-gray-700 text-sm font-bold mb-2">Password:</label>
+              <input type="password" id="password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+            </div>
+            <div class="flex items-center justify-between">
+              <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Login</button>
+              <a href="#" class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800">Forgot Password?</a>
+            </div>
+          </form>
         </section>
-
-
+        
       </div>
-
-      </main>
-
-
+    </main>
+    
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white text-left fixed text-xs bottom-0 w-full">
+    <footer class="bg-gray-900 text-white text-left fixed text-xs bottom-0 w-full p-4">
       <ul class="flex space-x-8">
-          <li>© WineClub 2024.</li>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="productes.html">Productes</a></li>
-          <li><a href="quisom.html">Qui sóm?</a></li>
-          <li><a href="enllaços.html">Enllaços</a></li>
+        <li>© WineClub 2024.</li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="productes.html">Productes</a></li>
+        <li><a href="quisom.html">Qui sóm?</a></li>
+        <li><a href="enllaços.html">Enllaços</a></li>
       </ul>
-  </footer>
-
-      <script>
+    </footer>
+    <script>
         function toggleElements() {
           const aside = document.getElementById('aside');
           const header = document.getElementById('header');
