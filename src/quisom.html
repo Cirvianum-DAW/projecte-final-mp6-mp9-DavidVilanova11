@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ca">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Qui Sóm</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body class="flex flex-col md:flex-row">
+
+    <!-- Contenido principal -->
+    <main id="header" class="flex-1 flex flex-col overflow-hidden bg-gray-600">
+
+      <!-- Header -->
+      <header class="bg-gray-200 p-4 flex items-center justify-between w-full">
+        <!-- Logotipo a la izquierda -->
+        <picture>
+          <img src="/Public/img/logo_final.svg" alt="Logo" class="pl-2 h-16 w-auto">
+        </picture>
+
+
+        <h1 class="text-2xl font-bold flex items-center justify-center w-full">Qui Sóm</h1>
+
+        <nav>
+          <div id="burger-icon" class="text-4xl">&#9776;</div>
+
+          <ul id="header-links" class="flex space
+          -x-4">
+            <!-- Los enlaces del header se agregarán o quitarán dinámicamente aquí -->
+          </ul>
+      </header>
+
+      <!-- Contenedor del Aside y Contenido central -->
+      <div id="container" class="flex flex-1">
+
+        <!-- Aside (izquierda) debajo del header -->
+        <aside id="aside" class="bg-gray-800 text-white w-1/6 p-4">
+          <ul>
+            <li class="mb-2">
+              <a href="index.html"" class="block p-2 bg-gray-600 rounded">Home</a>
+            </li>
+            <li class="mb-2">
+              <a href="productes.html" class="block p-2 bg-gray-600 rounded">Productes</a>
+            </li>
+            <li class="mb-2">
+              <a href="quisom.html" class="block p-2 bg-gray-600 rounded">Qui sóm? (actual)</a>
+            </li>
+            <li class="mb-2">
+              <a href="enllaços.html" class="block p-2 bg-gray-600 rounded">Enllaços</a>
+            </li>
+          </ul>        
+        </aside>
+
+        <!-- Contenido central con imagen de fondo -->
+        <section class="bg-cover bg-center justify-center flex min-h-screen md:min-h-screen">
+
+          <div class="flex">
+          <!-- Puedes añadir más contenido aquí -->
+          <p class="p-2 m-2 max-w-screen-sm bg-slate-300 mb-10">Welcome to Wineclub, a prestigious online destination for connoisseurs and enthusiasts seeking the epitome of exquisite wine experiences. At Wineclub, we curate a collection of the world's most exclusive and rare wines, meticulously sourced from renowned vineyards across the globe.
+
+            Immerse yourself in a world where each bottle tells a unique story, showcasing the artistry and craftsmanship of passionate winemakers. Our carefully selected range includes vintage classics, limited editions, and hidden gems that embody the essence of sophistication and refinement.
+            
+            Indulge in the opulence of Wineclub's virtual cellar, where every wine is a masterpiece waiting to be uncorked. Our portfolio spans diverse varietals, ensuring a sensory journey that caters to discerning palates. From bold reds that captivate the senses to delicate whites that dance on the taste buds, Wineclub offers a curated selection to satisfy even the most refined preferences.
+            
+            Explore our featured collections, each curated to celebrate the distinct characteristics of renowned wine regions. Whether you're a seasoned collector or a novice enthusiast, our expertly crafted descriptions provide insights into the heritage, terroir, and tasting notes of each bottle, elevating your appreciation for the world of fine wines.
+            
+            At Wineclub, we believe that wine is more than a beverage; it's an art form. Our commitment to excellence extends to our personalized service, where our wine experts are dedicated to assisting you in finding the perfect bottle for any occasion. Join us on this vinous journey, where luxury, passion, and sophistication converge to redefine your wine experience.
+            
+            Elevate your moments with Wineclub – where exclusivity meets exceptional taste, and every sip is a celebration of the extraordinary. Cheers to a world of unparalleled elegance and the pursuit of the finest wines. Welcome to Wineclub – Your Passport to Extraordinary Enotainment!
+        </p>
+
+      </div>
+
+        </section>
+
+        <div class="mt-2">
+          <img class="" src="/Public/img/ixs-enterprise.webp" alt="Empresa">
+        </div>
+        
+
+      </div>
+    </div>
+
+    <footer class="bg-gray-900 text-white text-left fixed text-xs bottom-0 w-full">
+      <ul class="flex space-x-8">
+          <li>© WineClub 2024.</li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="productes.html">Productes</a></li>
+          <li><a href="quisom.html">Qui sóm?</a></li>
+          <li><a href="enllaços.html">Enllaços</a></li>
+      </ul>
+  </footer>
+
+    </main>
+
+    <script>
+      function toggleElements() {
+        const aside = document.getElementById('aside');
+        const header = document.getElementById('header');
+        const container = document.getElementById('container');
+        const headerLinks = document.getElementById('header-links');
+        
+        if (window.innerWidth < 640) {
+          // Pantallas pequeñas
+          aside.style.display = 'none';
+          header.style.display = 'flex';
+          // container.classList.remove('flex-row');
+          // container.classList.add('flex-col');
+          // Añadir los enlaces al header
+          headerLinks.innerHTML = `
+                      <li class="mb-2">
+                          <a href="index.html">Home</a>
+                      </li>
+                      <li class="mb-2">
+                          <a href="productes.html" >Productes (actual)</a>
+                      </li>
+                      <li class="mb-2">
+                          <a href="quisom.html">Qui sóm?</a>
+                      </li>
+                      <li class="mb-2">
+                          <a href="enllaços.html">Enllaços</a>
+                      </li>
+          `;
+          burgerIcon.style.display = 'block';
+  
+        } else {
+          // Hide burger icon
+          burgerIcon.style.display = 'none';
+          // Pantallas grandes
+          aside.style.display = 'block';
+          // header.style.display = 'none';
+          container.classList.remove('flex-col');
+          container.classList.add('flex-row');
+          // Quitar los enlaces del header
+          headerLinks.innerHTML = '';
+          
+        }
+      }
+  
+  // Get references to the burger icon and the menu
+  const burgerIcon = document.getElementById('burger-icon');
+  const menu = document.getElementById('header-links');
+  
+  // Add event listener to the burger icon
+  burgerIcon.addEventListener('click', () => {
+      // Toggle the visibility of the menu
+      if (menu.style.display === 'none' || menu.style.display === '') {
+          menu.style.display = 'block';
+      } else {
+          menu.style.display = 'none';
+      }
+     
+  });
+  
+  
+      window.addEventListener('load', toggleElements);
+      window.addEventListener('resize', toggleElements);
+    </script>
+
+  </body>
+</html>

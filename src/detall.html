@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Qui Sóm</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" integrity="sha384-dQ39iB+qpj0eQCz2O+JS2k7BS9fEo+5IvE/rfHFCa0cCCi3bU9c/h3e4l7u5kWj7" crossorigin="anonymous">
+</head>
+
+<body class="flex flex-col md:flex-row">
+
+  <main class="flex-1 flex flex-col overflow-hidden">
+
+    <!-- Header -->
+    <header id="header" class="bg-gray-200 p-4 flex items-center justify-between w-full">
+      <picture>
+        <img src="/Public/img/logo_final.svg" alt="Logo" class="pl-2 h-16 w-auto">
+      </picture>
+      <h1 class="text-2xl font-bold flex items-center justify-center w-full">Detall</h1>
+      <nav>
+        <div id="burger-icon" class="text-4xl">&#9776;</div>
+
+        <ul id="header-links" class="flex space
+        -x-4">
+          <!-- Los enlaces del header se agregarán o quitarán dinámicamente aquí -->
+        </ul>
+      </nav>
+    </header>
+
+    <div class="flex flex-1">
+
+      <aside id="aside" class="bg-gray-800 text-white w-1/6 p-4 md:min-h-screen ">
+        <ul>
+          <li class="mb-2">
+            <a href="index.html" class="block p-2 bg-gray-600 rounded">Home</a>
+          </li>
+          <li class="mb-2">
+            <a href="productes.html" class="block p-2 bg-gray-600 rounded">Productes</a>
+          </li>
+          <li class="mb-2">
+            <a href="quisom.html" class="block p-2 bg-gray-600 rounded">Qui sóm?</a>
+          </li>
+          <li class="mb-2">
+            <a href="enllaços.html" class="block p-2 bg-gray-600 rounded">Enllaços</a>
+          </li>
+        </ul>
+      </aside>
+
+
+      <section class="bg-center flex flex-1 flex-col">
+        <!-- First Paragraph -->
+        <p class="m-2 p-2 bg-slate-300 mb-6">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore, veniam repellat. Eligendi ad, illo dolor assumenda corporis esse et dignissimos ratione voluptas minus quod porro accusamus? Culpa facilis cum harum error a iusto totam in nulla voluptas cumque exercitationem magnam consequuntur ipsum, maiores consectetur voluptatum fugit reprehenderit iste inventore veritatis impedit ratione, quo voluptates laudantium. Ad, dolorem quia! Fugiat minus repellendus, nostrum facilis hic neque beatae mollitia vero accusamus autem ea, temporibus deleniti reprehenderit nulla aut nesciunt atque magni doloribus rerum obcaecati quis maiores delectus iste. Quas nobis cum veniam atque dolore cupiditate ut autem, rerum laborum maxime quis voluptate enim error, odit earum! Cumque saepe consequatur odit iure, facere accusamus, perferendis laborum odio dignissimos soluta officia neque modi hic culpa itaque illum iste quaerat aliquid natus quisquam excepturi alias? Illo consequatur distinctio aliquam itaque voluptatibus laboriosam eaque natus eius magni blanditiis nostrum ex maiores deleniti molestias eos dignissimos voluptatem ut error ipsum, quidem iste. Qui ipsum, nesciunt reprehenderit ratione incidunt autem quo numquam expedita blanditiis porro sequi. Nisi labore in quisquam dolorem rem tempora, dicta quia eveniet alias iste et excepturi amet accusantium eaque expedita magni recusandae. Culpa omnis exercitationem quis fugiat ipsa temporibus. Enim eius iusto pariatur ea!
+        </p>
+        
+        <!-- Second Paragraph -->
+        <p class="m-2 p-2 bg-slate-900 mb-6 text-white">
+            Preu: 33,66€ <br>
+            Antiguetat: 2 dies <br>
+            Gust: Amarg
+        </p>
+    </section>
+
+
+  </section>
+
+  <div class="">
+    <img src="/Public/img/wine1_optimized.webp" alt="Logo" style="width: 30vw; height: auto;">
+  </div>
+
+    </div>
+
+ 
+    <footer class="bg-gray-900 text-white text-left fixed text-xs bottom-0 w-full">
+      <ul class="flex space-x-8">
+          <li>© WineClub 2024.</li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="productes.html">Productes</a></li>
+          <li><a href="quisom.html">Qui sóm?</a></li>
+          <li><a href="enllaços.html">Enllaços</a></li>
+      </ul>
+  </footer>
+
+  </main>
+
+  <script>
+    function toggleElements() {
+      const aside = document.getElementById('aside');
+      const header = document.getElementById('header');
+    //   const container = document.getElementById('container');
+      const headerLinks = document.getElementById('header-links');
+      
+      if (window.innerWidth < 640) {
+        // Pantallas pequeñas
+        aside.style.display = 'none';
+        header.style.display = 'flex';
+        // container.classList.remove('flex-row');
+        // container.classList.add('flex-col');
+        // Añadir los enlaces al header
+        headerLinks.innerHTML = `
+                    <li class="mb-2">
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="productes.html" >Productes (actual)</a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="quisom.html">Qui sóm?</a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="enllaços.html">Enllaços</a>
+                    </li>
+        `;
+        burgerIcon.style.display = 'block';
+
+      } else {
+        // Hide burger icon
+        burgerIcon.style.display = 'none';
+        // Pantallas grandes
+        aside.style.display = 'block';
+        // header.style.display = 'none';
+        // container.classList.remove('flex-col');
+        // container.classList.add('flex-row');
+        // Quitar los enlaces del header
+        headerLinks.innerHTML = '';
+        
+      }
+    }
+
+// Get references to the burger icon and the menu
+const burgerIcon = document.getElementById('burger-icon');
+const menu = document.getElementById('header-links');
+
+// Add event listener to the burger icon
+burgerIcon.addEventListener('click', () => {
+    // Toggle the visibility of the menu
+    if (menu.style.display === 'none' || menu.style.display === '') {
+        menu.style.display = 'block';
+    } else {
+        menu.style.display = 'none';
+    }
+   
+});
+
+
+    window.addEventListener('load', toggleElements);
+    window.addEventListener('resize', toggleElements);
+
+  </script>
+
+</body>
+
+</html>

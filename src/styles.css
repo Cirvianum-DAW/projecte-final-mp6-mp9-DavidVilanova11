@@ -1,0 +1,56 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+#header-links {
+  display: none;
+  /* Initially hide the menu */
+  list-style: none;
+}
+
+#burger-icon {
+  display: block;
+  cursor: pointer;
+}
+
+/* Estilos para el contenedor del fondo */
+#background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@media (max-width: 639px) {
+  .bg-primary {
+    background-image: url('../Public/img/cropped_index_wallpaper.png');
+    /* Change to a different color */
+  }
+}
+
+@media (min-width: 640px) {
+  .bg-primary {
+    /* Change the background image URL for larger viewports */
+    background-image: url('../Public/img/index_wallpaper (1).webp');
+  }
+}
+
+.clip-image {
+  width: 12vw;
+  /* Set your desired width */
+  height: 12vw;
+  /* Set your desired height */
+  object-fit: cover;
+  /* Ensure the image covers the entire space */
+  clip-path: circle(50%);
+  /* Apply circular clipping */
+}
+
+/* Apply animation to logo */
+.animated-logo {
+  animation: bounce 1s infinite;
+}

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ca">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+  </head>
+  <body>
+    <!-- Contenido principal -->
+    <main class="flex-1 flex flex-col overflow-hidden" id="background">
+
+      <!-- Header -->
+      <header id="header" class="bg-gray-200 p-4 flex items-center justify-between w-full shrink-0">
+        <!-- Logotipo a la izquierda -->
+        <picture>
+          <img src="/Public/img/logo_final.svg" alt="Logo" class="animated-logo pl-2  w-20 h-auto">
+        </picture>
+        <!-- Links -->
+        <h1 class="text-2xl font-bold flex items-center justify-center w-full">Home</h1>
+        <nav>
+
+          <div id="burger-icon" class="text-4xl">&#9776;</div>
+
+          <ul id="header-links" class="flex space
+          -x-4">
+            <!-- Los enlaces del header se agregarán o quitarán dinámicamente aquí -->
+          </ul>
+        </nav>
+      </header>
+
+      <!-- Contenedor del Aside y Contenido central -->
+      <div id="container" class="flex flex-1">
+
+        <!-- Aside (izquierda) debajo del header -->
+        <aside id="aside" class="bg-gray-800 text-white w-1/6 p-4">
+          <ul>
+            <li class="mb-2">
+              <a href="index.html" class="block p-2 bg-gray-600 rounded">Home (actual)</a>
+            </li>
+            <li class="mb-2">
+              <a href="productes.html" class="block p-2 bg-gray-600 rounded">Productes</a>
+            </li>
+            <li class="mb-2">
+              <a href="quisom.html" class="block p-2 bg-gray-600 rounded">Qui sóm?</a>
+            </li>
+            <li class="mb-2">
+              <a href="enllaços.html" class="block p-2 bg-gray-600 rounded">Enllaços</a>
+            </li>
+          </ul>
+        </aside>
+
+        <!-- Contenido central con imagen de fondo -->
+        <section class="flex-1 bg-cover bg-center md:min-h-screen bg-primary">
+          <img src="https://wrestlingheadlines.com/wp-content/uploads/2021/05/ROH-2-1140x570.jpeg" alt="World's Best" class="clip-image float-end m-6">
+          <!-- Puedes añadir más contenido aquí -->
+        </section>
+
+
+      </div>
+
+      </main>
+
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white text-left fixed text-xs bottom-0 w-full">
+      <ul class="flex space-x-8">
+          <li>© WineClub 2024.</li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="productes.html">Productes</a></li>
+          <li><a href="quisom.html">Qui sóm?</a></li>
+          <li><a href="enllaços.html">Enllaços</a></li>
+      </ul>
+  </footer>
+
+      <script>
+        function toggleElements() {
+          const aside = document.getElementById('aside');
+          const header = document.getElementById('header');
+          // const container = document.getElementById('container');
+          const headerLinks = document.getElementById('header-links');
+          
+          if (window.innerWidth < 640) {
+            // Pantallas pequeñas
+            aside.style.display = 'none';
+            header.style.display = 'flex';
+            // container.classList.remove('flex-row');
+            // container.classList.add('flex-col');
+            // Añadir los enlaces al header
+
+            burgerIcon.style.display = 'block';
+
+} else {
+  // Hide burger icon
+  burgerIcon.style.display = 'none';
+  // Pantallas grandes
+  aside.style.display = 'block';
+  // header.style.display = 'none';
+  // container.classList.remove('flex-col');
+  // container.classList.add('flex-row');
+  // Quitar los enlaces del header
+  headerLinks.innerHTML = '';
+  
+}
+}
+
+// Get references to the burger icon and the menu
+const burgerIcon = document.getElementById('burger-icon');
+const menu = document.getElementById('header-links');
+
+// Add event listener to the burger icon
+burgerIcon.addEventListener('click', () => {
+// Toggle the visibility of the menu
+if (menu.style.display === 'none' || menu.style.display === '') {
+  menu.innerHTML = `
+              <li>
+                <a href="home.html" class="text-gray-800 hover:text-gray-600">Home (actual)</a>
+              </li>
+              <li>
+                <a href="productes.html" class="text-gray-800 hover:text-gray-600">Productes</a>
+              </li>
+              <li>
+                <a href="quisom.html" class="text-gray-800 hover:text-gray-600">Qui sóm?</a>
+              </li>
+              <li>
+                <a href="enllaços.html" class="text-gray-800 hover:text-gray-600">Enllaços</a>
+              </li>
+            `;
+  menu.style.display = 'block';
+} else {
+  menu.style.display = 'none';
+  
+}
+
+});
+
+
+window.addEventListener('load', toggleElements);
+window.addEventListener('resize', toggleElements);
+
+
+    // Array con las URLs de las imágenes
+    var images = [
+        '../Public/img/index_wallpaper (1).webp.jpg',
+        '../Public/img/cropped_index_wallpaper.png'
+    ];
+
+    // Función para seleccionar la imagen de fondo basada en el tamaño de la ventana
+    function setBackgroundImage() {
+        var windowWidth = window.innerWidth;
+        var imageUrl = (windowWidth >= 768) ? images[0] : images[1]; // Ejemplo: Si el ancho de la ventana es mayor o igual a 768px, usa la primera imagen, de lo contrario, usa la segunda imagen
+        document.getElementById('background').style.backgroundImage = 'url(' + imageUrl + ')';
+    }
+
+// Llamar a la función al cargar la página y al cambiar el tamaño de la ventana
+window.onload = setBackgroundImage;
+window.onresize = setBackgroundImage;
+
+</script>
+  </body>
+</html>
