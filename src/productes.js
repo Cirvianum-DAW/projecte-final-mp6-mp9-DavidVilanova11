@@ -19,7 +19,7 @@ async function obtenerDatosVinos() {
       vinos.forEach(vino => {
         const cardHTML = `
           <div class="max-w-sm rounded overflow-hidden shadow-lg m-4 md:w-1/2" data-category="${vino.categoria}">
-            <img src="../Public/img/${vino.imatge}" alt="${vino.nom}" class="w-full h-100 object-cover">
+            <img src="/img/${vino.imatge}" alt="${vino.nom}" class="w-full h-100 object-cover">
             <div class="px-6 py-4">
               <div class="font-bold text-xl mb-2">${vino.nom}</div>
               <p class="text-gray-700 text-base">${vino.descripcio}</p>
