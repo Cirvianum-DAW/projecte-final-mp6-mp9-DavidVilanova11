@@ -67,10 +67,11 @@
   function verificarAutenticacion() {
     const usuario = localStorage.getItem('usuario');
     console.log(usuario);
-    if (!usuario) {
-      window.location.href = 'login.html'; // Redirigir al login si no está autenticado
+    if (!usuario && window.location.pathname !== '/register.html') {
+      window.location.href = 'login.html'; // Redirigir al login si no está autenticado y no estamos en register.html
     }
   }
+  
   
   document.addEventListener('DOMContentLoaded', () => {
     verificarAutenticacion();

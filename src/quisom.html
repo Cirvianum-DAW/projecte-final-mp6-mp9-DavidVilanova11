@@ -12,23 +12,20 @@
     <main id="header" class="flex-1 flex flex-col overflow-hidden bg-gray-600">
 
       <!-- Header -->
-      <header class="bg-gray-200 p-4 flex items-center justify-between w-full">
+      <header id="header" class="bg-gray-200 p-4 flex items-center justify-between w-full shrink-0">
         <!-- Logotipo a la izquierda -->
         <picture>
-          <img src="/Public/img/logo_final.svg" alt="Logo" class="pl-2 h-16 w-auto">
+          <img src="/Public/img/logo_final.svg" alt="Logo" class="animated-logo pl-2 w-20 h-auto">
         </picture>
-
-
-        <h1 class="text-2xl font-bold flex items-center justify-center w-full">Qui Sóm</h1>
-
-        <nav>
-          <div id="burger-icon" class="text-4xl">&#9776;</div>
-
-          <ul id="header-links" class="flex space
-          -x-4">
-            <!-- Los enlaces del header se agregarán o quitarán dinámicamente aquí -->
-          </ul>
+        <!-- Título -->
+        <h1 class="text-2xl font-bold flex items-center justify-center w-full">Qui sóm?</h1>
+        <!-- Nombre de usuario y Logout -->
+        <div id="usuario-info" class="flex items-center space-x-4">
+          <span id="nombreUsuario" class="text-gray-700"></span>
+          <button id="logout" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Logout</button>
+        </div>
       </header>
+      
 
       <!-- Contenedor del Aside y Contenido central -->
       <div id="container" class="flex flex-1">
@@ -92,6 +89,8 @@
   </footer>
 
     </main>
+
+    <script src="./users.js"></script>
 
     <script>
       function toggleElements() {
