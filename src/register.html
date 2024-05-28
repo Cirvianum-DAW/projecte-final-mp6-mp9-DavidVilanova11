@@ -19,15 +19,7 @@
         </picture>
         <!-- Title -->
         <h1 class="text-2xl font-bold flex items-center justify-center w-full">Register</h1>
-        <!-- Navigation -->
-        <nav>
-          <div id="burger-icon" class="text-4xl">&#9776;</div>
-          <ul id="header-links" class="flex space-x-4">
-            <!-- Header links will be dynamically added or removed here -->
-          </ul>
-        </nav>
       </header>
-      <h1>Hem de fer un post al api</h1>
 
       <!-- Main Container -->
       <div id="container" class="flex flex-1 items-center justify-center">
@@ -35,11 +27,7 @@
         <!-- Registration Form -->
         <section class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
           <h2 class="text-2xl font-bold mb-6 text-center">Create Your Account</h2>
-          <form>
-            <div class="mb-4">
-              <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Name:</label>
-              <input type="text" id="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
-            </div>
+          <form id="registerForm">
             <div class="mb-4">
               <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email:</label>
               <input type="email" id="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
@@ -54,6 +42,7 @@
             </div>
             <div class="flex items-center justify-between">
               <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Register</button>
+              <a href="login.html" class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800">Login</a>
             </div>
           </form>
         </section>
@@ -71,89 +60,6 @@
         <li><a href="enllaços.html">Enllaços</a></li>
       </ul>
     </footer>
-    <script>
-        function toggleElements() {
-          const aside = document.getElementById('aside');
-          const header = document.getElementById('header');
-          // const container = document.getElementById('container');
-          const headerLinks = document.getElementById('header-links');
-          
-          if (window.innerWidth < 640) {
-            // Pantallas pequeñas
-            aside.style.display = 'none';
-            header.style.display = 'flex';
-            // container.classList.remove('flex-row');
-            // container.classList.add('flex-col');
-            // Añadir los enlaces al header
 
-            burgerIcon.style.display = 'block';
-
-} else {
-  // Hide burger icon
-  burgerIcon.style.display = 'none';
-  // Pantallas grandes
-  aside.style.display = 'block';
-  // header.style.display = 'none';
-  // container.classList.remove('flex-col');
-  // container.classList.add('flex-row');
-  // Quitar los enlaces del header
-  headerLinks.innerHTML = '';
-  
-}
-}
-
-// Get references to the burger icon and the menu
-const burgerIcon = document.getElementById('burger-icon');
-const menu = document.getElementById('header-links');
-
-// Add event listener to the burger icon
-burgerIcon.addEventListener('click', () => {
-// Toggle the visibility of the menu
-if (menu.style.display === 'none' || menu.style.display === '') {
-  menu.innerHTML = `
-              <li>
-                <a href="home.html" class="text-gray-800 hover:text-gray-600">Home (actual)</a>
-              </li>
-              <li>
-                <a href="productes.html" class="text-gray-800 hover:text-gray-600">Productes</a>
-              </li>
-              <li>
-                <a href="quisom.html" class="text-gray-800 hover:text-gray-600">Qui sóm?</a>
-              </li>
-              <li>
-                <a href="enllaços.html" class="text-gray-800 hover:text-gray-600">Enllaços</a>
-              </li>
-            `;
-  menu.style.display = 'block';
-} else {
-  menu.style.display = 'none';
-  
-}
-
-});
-
-
-window.addEventListener('load', toggleElements);
-window.addEventListener('resize', toggleElements);
-
-
-    // Array con las URLs de las imágenes
-    var images = [
-        '../Public/img/index_wallpaper (1).webp.jpg',
-        '../Public/img/cropped_index_wallpaper.png'
-    ];
-
-    // Función para seleccionar la imagen de fondo basada en el tamaño de la ventana
-    function setBackgroundImage() {
-        var windowWidth = window.innerWidth;
-        var imageUrl = (windowWidth >= 768) ? images[0] : images[1]; // Ejemplo: Si el ancho de la ventana es mayor o igual a 768px, usa la primera imagen, de lo contrario, usa la segunda imagen
-        document.getElementById('background').style.backgroundImage = 'url(' + imageUrl + ')';
-    }
-
-// Llamar a la función al cargar la página y al cambiar el tamaño de la ventana
-window.onload = setBackgroundImage;
-window.onresize = setBackgroundImage;
-
-</script>
   </body>
 </html>
