@@ -6,8 +6,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Productes</title>
     <link rel="stylesheet" href="./styles.css" />
-    <link rel="stylesheet" href="./like.css">
 </head>
+
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700&display=swap");
+.like-cont {
+  width: 100px;
+  height: 60px;
+  background: white;
+  border-radius: 9px;
+  box-shadow: 0 10px 25px rgba(124, 130, 141, 0.2);
+  cursor: pointer;
+  transition: all 0.25s ease-out;
+  transform: translate(10%, -120%);
+  user-select: none;
+  position: absolute;
+}
+@media (max-width: 575.9px) {
+  .like-cont {
+    width: 260px;
+  }
+}
+.like-cont .heart-icon {
+  user-select: none;
+  position: absolute;
+  left: 20%;
+  top: 53%;
+  width: 30px;
+  transform: translate(-20%, -50%);
+  fill: transparent;
+  transition: transform 0.25s ease-out;
+  transform-origin: 50% 50%;
+}
+.like-cont .heart-icon .fill-color-shape {
+  fill: transparent;
+}
+.like-cont .heart-icon.isLiked {
+  filter: drop-shadow(0 3px 5px #c44133);
+}
+.like-cont .heart-icon.isLiked .fill-color-shape {
+  transition: fill 0.5s linear;
+  fill: #e74c3c;
+}
+.like-cont .heart-icon:hover {
+  transform: translate(-20%, calc(-50% - 3px)) scale(1.03);
+}
+.like-cont .number-of-likes {
+font-family: "Urbanist", sans-serif;
+  font-size: 16px;
+  user-select: none;
+  position: absolute;
+  left: 80%;
+  top: 53%;
+  transform: translate(-80%, -50%);
+  color: #292d34;
+  user-select: none;
+}
+
+
+</style>
 
 <body class="flex flex-col md:flex-row">
 
@@ -90,7 +147,7 @@
     </main>
 
     <!-- Call index.js -->
-    <script src="like.js"></script>
+    <script src="./like.js"></script>
     <script src="./login.js"></script>
     <script src="./productes.js"></script>
 
@@ -181,7 +238,37 @@ burgerIcon.addEventListener('click', () => {
 
   </script>
 
+<script>
 
+const likeBtn = document.querySelector('.heart-icon');
+
+console.log("Holaaaaa");
+
+const numberOfLikesElement = document.querySelector('.number-of-likes');
+
+let numberOfLikes = Number.parseInt(numberOfLikesElement.textContent, 10);
+let isLiked = false;
+
+
+const likeClick = () => {
+  if (!isLiked) {
+    likeBtn.classList.add('isLiked');
+    numberOfLikes++;
+    numberOfLikesElement.textContent = numberOfLikes;
+    isLiked = !isLiked;
+  } else {
+    likeBtn.classList.remove('isLiked');
+    numberOfLikes--;
+    numberOfLikesElement.textContent = numberOfLikes;
+    isLiked = !isLiked;
+  }
+};
+
+// Event Listeners
+
+likeBtn.addEventListener('click', likeClick);
+
+</script>
 
 </body>
 
