@@ -238,37 +238,6 @@ burgerIcon.addEventListener('click', () => {
 
   </script>
 
-<script>
-
-const likeBtn = document.querySelector('.heart-icon');
-
-console.log("Holaaaaa");
-
-const numberOfLikesElement = document.querySelector('.number-of-likes');
-
-let numberOfLikes = Number.parseInt(numberOfLikesElement.textContent, 10);
-let isLiked = false;
-
-
-const likeClick = () => {
-  if (!isLiked) {
-    likeBtn.classList.add('isLiked');
-    numberOfLikes++;
-    numberOfLikesElement.textContent = numberOfLikes;
-    isLiked = !isLiked;
-  } else {
-    likeBtn.classList.remove('isLiked');
-    numberOfLikes--;
-    numberOfLikesElement.textContent = numberOfLikes;
-    isLiked = !isLiked;
-  }
-};
-
-// Event Listeners
-
-likeBtn.addEventListener('click', likeClick);
-
-</script>
 
 </body>
 
