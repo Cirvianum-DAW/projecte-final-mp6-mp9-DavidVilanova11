@@ -15,15 +15,24 @@
       <header id="header" class="bg-gray-200 p-4 flex items-center justify-between w-full shrink-0">
         <!-- Logotipo a la izquierda -->
         <picture>
-          <img src="/Public/img/logo_final.svg" alt="Logo" class="animated-logo pl-2 w-20 h-auto">
+          <img src="/Public/img/logo_final.svg" alt="Logo" class="animated-logo pl-2  w-20 h-auto">
         </picture>
-        <!-- Título -->
-        <h1 class="text-2xl font-bold flex items-center justify-center w-full">Qui sóm?</h1>
-        <!-- Nombre de usuario y Logout -->
-        <div id="usuario-info" class="flex items-center space-x-4">
-          <span id="nombreUsuario" class="text-gray-700"></span>
-          <button id="logout" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Logout</button>
-        </div>
+        <!-- Links -->
+        <h1 class="text-2xl font-bold flex items-center justify-center w-full">Qui Sóm?</h1>
+        <nav>
+
+          <div id="burger-icon" class="text-4xl">&#9776;</div>
+
+          <ul id="header-links" class="flex space
+          -x-4">
+            <!-- Los enlaces del header se agregarán o quitarán dinámicamente aquí -->
+          </ul>
+          <div id="usuario-info" class="sm:flex items-center space-x-4 hidden">
+            <span id="nombreUsuario" class="text-gray-700"></span>
+            <button id="logout" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Logout</button>
+          </div>
+        </nav>
+        
       </header>
       
 
@@ -99,6 +108,8 @@
         const container = document.getElementById('container');
         const headerLinks = document.getElementById('header-links');
         
+        let usuario = JSON.parse(localStorage.getItem('usuario'));
+
         if (window.innerWidth < 640) {
           // Pantallas pequeñas
           aside.style.display = 'none';
@@ -107,19 +118,23 @@
           // container.classList.add('flex-col');
           // Añadir los enlaces al header
           headerLinks.innerHTML = `
-                      <li class="mb-2">
-                          <a href="index.html">Home</a>
-                      </li>
-                      <li class="mb-2">
-                          <a href="productes.html" >Productes (actual)</a>
-                      </li>
-                      <li class="mb-2">
-                          <a href="quisom.html">Qui sóm?</a>
-                      </li>
-                      <li class="mb-2">
-                          <a href="enllaços.html">Enllaços</a>
-                      </li>
-          `;
+          <li>
+                <a href="home.html" class="text-gray-800 hover:text-gray-600">Home</a>
+              </li>
+              <li>
+                <a href="productes.html" class="text-gray-800 hover:text-gray-600">Productes</a>
+              </li>
+              <li>
+                <a href="quisom.html" class="text-gray-800 hover:text-gray-600">Qui sóm? (actual)</a>
+              </li>
+              <li>
+                <a href="enllaços.html" class="text-gray-800 hover:text-gray-600">Enllaços</a>
+              </li>
+              <li id="nombreUsuario" class="text-gray-700">${usuario.email}</li>
+              <li>
+              <button id="logout" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Logout</button>
+              </li>
+            `;
           burgerIcon.style.display = 'block';
   
         } else {
