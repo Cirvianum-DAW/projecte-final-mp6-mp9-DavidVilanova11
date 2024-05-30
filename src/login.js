@@ -62,26 +62,39 @@
   
         try {
           const apiUrl = 'https://6644bc3cb8925626f88fb766.mockapi.io/api/vins/usuaris';
-          const response = await fetch(apiUrl, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-              email: email,
-              contrasenya: contrasenya
-            })
-          });
-  
+          const response = await fetch(apiUrl);
           if (!response.ok) {
-            throw new Error('Credenciales inválidas');
+            throw new Error('Error al obtener los datos de los usuarios');
           }
   
-          const data = await response.json();
-          console.log('Usuario autenticado:', data);
+          const usuarios = await response.json();
+          let usuarioExistente = usuarios.find(user => user.email === email && user.contrasenya === contrasenya);
+  
+          if (!usuarioExistente) {
+            // Crear un nuevo usuario si no existe
+            const response = await fetch(apiUrl, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({
+                email: email,
+                contrasenya: contrasenya,
+                vinsPreferits: []
+              })
+            });
+  
+            if (!response.ok) {
+              throw new Error('Error al crear el usuario');
+            }
+  
+            usuarioExistente = await response.json();
+          }
+  
+          console.log('Usuario autenticado:', usuarioExistente);
           
           // Guardar el usuario en localStorage
-          localStorage.setItem('usuario', JSON.stringify(data));
+          localStorage.setItem('usuario', JSON.stringify(usuarioExistente));
   
           // Redirigir a la página principal o de bienvenida
           window.location.href = 'index.html';
@@ -91,6 +104,7 @@
         }
       });
     }
+  });
   
     // Manejar el evento de logout
     const logoutButton = document.getElementById('logout');
@@ -101,7 +115,7 @@
       });
     }
 
-  });
+  
   
   function verificarAutenticacion() {
     const usuario = localStorage.getItem('usuario');
