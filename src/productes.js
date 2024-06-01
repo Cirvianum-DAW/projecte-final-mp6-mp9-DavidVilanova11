@@ -80,7 +80,7 @@ async function generarCardsDeVinos() {
           <img src="/img/${vino.imatge}" alt="${vino.nom}" class="w-full h-100 object-cover">
           <div class="px-6 py-4">
             <div class="font-bold text-xl mb-2">${vino.nom}</div>
-            <p class="text-gray-700 text-base">${vino.descripcio}</p>
+            <p class="text-slate-200 text-base">${vino.descripcioCurta}</p>
           </div>
           <div class="px-6 py-4 flex items-center">
             <a href="detall.html?id=${vino.id}" class="ml-auto">

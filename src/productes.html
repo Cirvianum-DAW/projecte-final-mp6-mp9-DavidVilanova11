@@ -172,6 +172,7 @@ font-family: "Urbanist", sans-serif;
                 // Hide cards that don't match the selected category
                 cards.forEach(card => {
                     var category = card.getAttribute("data-category");
+                    console.log(category, selectedCategory);
                     card.style.display = (category === selectedCategory) ? "block" : "none";
                 });
             }
