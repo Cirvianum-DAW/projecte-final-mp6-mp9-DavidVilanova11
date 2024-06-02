@@ -92,7 +92,7 @@ async function generarCardsDeVinos() {
     if (isAdmin) {
       const createButtonHTML = `
         <div class="w-full flex justify-end my-4">
-          <button id="crear-vino" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-4">Crear Vino</button>
+          <button id="crear-vino" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-4">Crear Vi</button>
         </div>
       `;
       contenedor.insertAdjacentHTML('beforebegin', createButtonHTML);
