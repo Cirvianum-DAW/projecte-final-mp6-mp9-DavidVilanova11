@@ -86,12 +86,28 @@ async function generarCardsDeVinos() {
   const contenedor = document.querySelector('.contenidor-cards');
   const vinos = await obtenerDatosVinos();
   const usuarioActual = obtenerUsuarioActual();
+  const isAdmin = usuarioActual.admin === 'true';
+
+    // Añadir botón de crear vino si el usuario es administrador
+    if (isAdmin) {
+      const createButtonHTML = `
+        <div class="w-full flex justify-end my-4">
+          <button id="crear-vino" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-4">Crear Vino</button>
+        </div>
+      `;
+      contenedor.insertAdjacentHTML('beforebegin', createButtonHTML);
+    
+      document.getElementById('crear-vino').addEventListener('click', () => {
+        // Redirigir a la página de creación de vino
+        window.location.href = 'crear.html';
+      });
+    }
+  
 
   if (vinos && usuarioActual) {
     vinos.forEach((vino, index) => {
       const isLiked = usuarioActual.vinsPreferits.includes(vino.id);
       const likeIconClass = isLiked ? 'isLiked' : '';
-      const isAdmin = usuarioActual.admin === 'true';
 
       const cardHTML = `
         <div class="max-w-sm rounded overflow-hidden shadow-lg m-4 md:w-1/2" data-category="${vino.categoria}" data-vino-id="${vino.id}">
