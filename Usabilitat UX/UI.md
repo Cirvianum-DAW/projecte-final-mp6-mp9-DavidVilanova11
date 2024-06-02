@@ -44,7 +44,15 @@
 **Rol:** Usuari administrador  
 **Edat usuari:** 50 anys  
 **Dispositiu:** Ordinador  
-**Data:** 06/01/2024  
+**Data:** 06/01/2024 
+
+**Llista de Tasques:**
+1. Iniciar sessió amb usuari administrador proporcionat.
+3. Navegar utilitzant el aside.
+4. Posar like a un vi.
+4. Elimianr un vi.
+4. Crear un vi.
+5. Tancar la sessió.
 
 **Observacions:**
 - L’usuari va iniciar sessió amb el seu usuari administrador.
@@ -67,6 +75,13 @@
 **Edat usuari:** 20 anys  
 **Dispositiu:** Mòbil (emulat)  
 **Data:** 06/01/2024  
+
+**Llista de Tasques:**
+1. Registrar-se.
+2. Iniciar sessió.
+3. Navegar utilitzant el aside.
+4. Donar like a un vi.
+5. Tancar la sessió.
 
 **Observacions:**
 - L’usuari es va registrar i iniciar sessió.
