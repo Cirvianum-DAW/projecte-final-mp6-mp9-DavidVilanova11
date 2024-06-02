@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ca">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crear Vi</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <!-- Contenido principal -->
+    <main class="flex-1 flex flex-col overflow-hidden" id="background">
+      <header id="header" class="bg-gray-200 p-4 flex items-center justify-between w-full shrink-0">
+        <!-- Logotipo a la izquierda -->
+        <picture>
+          <img src="/Public/img/logo_final.svg" alt="Logo" class="animated-logo pl-2  w-20 h-auto">
+        </picture>
+        <!-- Links -->
+        <h1 class="text-2xl font-bold flex items-center justify-center w-full">Crear Vi</h1>
+        <nav>
+          <div id="burger-icon" class="text-4xl">&#9776;</div>
+          <ul id="header-links" class="flex space-x-4">
+            <!-- Los enlaces del header se agregarán o quitarán dinámicamente aquí -->
+          </ul>
+          <div id="usuario-info" class="sm:flex items-center space-x-4 hidden">
+            <span id="nombreUsuario" class="text-gray-700"></span>
+            <button id="logout" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Logout</button>
+          </div>
+        </nav>
+      </header>
+      
+      <!-- Contenedor del Aside y Contenido central -->
+      <div id="container" class="flex flex-1">
+        <!-- Aside (izquierda) debajo del header -->
+        <aside id="aside" class="bg-gray-800 text-white w-1/6 p-4">
+          <ul>
+            <li class="mb-2">
+              <a href="index.html" class="block p-2 bg-gray-600 rounded">Home</a>
+            </li>
+            <li class="mb-2">
+              <a href="productes.html" class="block p-2 bg-gray-600 rounded">Productes</a>
+            </li>
+            <li class="mb-2">
+              <a href="quisom.html" class="block p-2 bg-gray-600 rounded">Qui sóm?</a>
+            </li>
+            <li class="mb-2">
+              <a href="enllaços.html" class="block p-2 bg-gray-600 rounded">Enllaços</a>
+            </li>
+          </ul>
+        </aside>
+
+        <!-- Contenido central con formulario -->
+        <section class="flex-1 bg-cover bg-center md:min-h-screen bg-primary p-8">
+          <div class="max-w-lg mx-auto mt-10 p-6 bg-white rounded-lg shadow-lg">
+            <h2 class="text-2xl font-bold mb-6">Crear Nou Vi</h2>
+            <form id="wineForm" enctype="multipart/form-data">
+              <div class="mb-4">
+                <label for="nom" class="block text-gray-700">Nom del Vi:</label>
+                <input type="text" id="nom" name="nom" required class="w-full px-3 py-2 border border-gray-300 rounded-lg" />
+              </div>
+              <div class="mb-4">
+                <label for="descripcio" class="block text-gray-700">Descripció:</label>
+                <textarea id="descripcio" name="descripcio" required class="w-full px-3 py-2 border border-gray-300 rounded-lg"></textarea>
+              </div>
+              <div class="mb-4">
+                <label for="categoria" class="block text-gray-700">Categoria:</label>
+                <select id="categoria" name="categoria" required class="w-full px-3 py-2 border border-gray-300 rounded-lg">
+                  <option value="">Selecciona una Categoria</option>
+                  <option value="negre">Negre</option>
+                  <option value="blanc">Blanc</option>
+                  <option value="rosat">Rosat</option>
+                  <option value="espumós">Espumós</option>
+                </select>
+              </div>
+              <div class="mb-4">
+                <label for="imatge" class="block text-gray-700">Imatge:</label>
+                <input type="file" id="imatge" name="imatge" accept="image/*" required class="w-full px-3 py-2 border border-gray-300 rounded-lg" />
+              </div>
+              <div class="mb-4">
+                <label for="likes" class="block text-gray-700">Gustos:</label>
+                <input type="number" id="likes" name="likes" required class="w-full px-3 py-2 border border-gray-300 rounded-lg" />
+              </div>
+              <div class="flex justify-end">
+                <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Crear Vi</button>
+              </div>
+            </form>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white text-left fixed text-xs bottom-0 w-full">
+      <ul class="flex space-x-8">
+          <li>© WineClub 2024.</li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="productes.html">Productes</a></li>
+          <li><a href="quisom.html">Qui sóm?</a></li>
+          <li><a href="enllaços.html">Enllaços</a></li>
+          <li class="hidden"><a href="register.html">Register</a></li>
+          <li class="hidden"><a href="login.html">Login</a></li>
+          <li class="hidden"><a href="detall.html">Detall</a></li>
+          <li class="hidden"><a href="crear.html">Crear</a></li>
+      </ul>
+    </footer>
+
+    <script src="login.js"></script> 
+    <script>
+      function toggleElements() {
+        const aside = document.getElementById('aside');
+        const header = document.getElementById('header');
+        const headerLinks = document.getElementById('header-links');
+        
+        if (window.innerWidth < 640) {
+          aside.style.display = 'none';
+          header.style.display = 'flex';
+          burgerIcon.style.display = 'block';
+        } else {
+          burgerIcon.style.display = 'none';
+          aside.style.display = 'block';
+          headerLinks.innerHTML = '';
+        }
+      }
+
+      const burgerIcon = document.getElementById('burger-icon');
+      const menu = document.getElementById('header-links');
+      let usuario = JSON.parse(localStorage.getItem('usuario'));
+
+      burgerIcon.addEventListener('click', () => {
+        if (menu.style.display === 'none' || menu.style.display === '') {
+          menu.innerHTML = `
+            <li><a href="home.html" class="text-gray-800 hover:text-gray-600">Home</a></li>
+            <li><a href="productes.html" class="text-gray-800 hover:text-gray-600">Productes</a></li>
+            <li><a href="quisom.html" class="text-gray-800 hover:text-gray-600">Qui sóm?</a></li>
+            <li><a href="enllaços.html" class="text-gray-800 hover:text-gray-600">Enllaços</a></li>
+            <li id="nombreUsuario" class="text-gray-700">${usuario.email}</li>
+            <li><button id="logout" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Logout</button></li>
+          `;
+          menu.style.display = 'block';
+        } else {
+          menu.style.display = 'none';
+        }
+      });
+
+      window.addEventListener('load', toggleElements);
+      window.addEventListener('resize', toggleElements);
+
+      var images = [
+        '../Public/img/index_wallpaper (1).webp.jpg',
+        '../Public/img/cropped_index_wallpaper.png'
+      ];
+
+      function setBackgroundImage() {
+        var windowWidth = window.innerWidth;
+        var imageUrl = (windowWidth >= 768) ? images[0] : images[1];
+        document.getElementById('background').style.backgroundImage = 'url(' + imageUrl + ')';
+      }
+
+      window.onload = setBackgroundImage;
+      window.onresize = setBackgroundImage;
+
+      document.getElementById('wineForm').addEventListener('submit', async function(event) {
+        event.preventDefault();
+        const formData = new FormData(this);
+
+        try {
+          const response = await fetch('https://6644bc3cb8925626f88fb766.mockapi.io/api/vins/vins', {
+            method: 'POST',
+            body: formData
+          });
+
+          if (!response.ok) {
+            throw new Error('Error al crear el vi');
+          }
+
+          const result = await response.json();
+          console.log('Vi creat amb èxit:', result);
+          alert('Vi creat amb èxit!');
+          this.reset();
+        } catch (error) {
+          console.error('Ha ocorregut un error:', error);
+          alert('Ha ocorregut un error al crear el vi.');
+        }
+      });
+    </script>
+  </body>
+</html>

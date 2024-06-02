@@ -41,7 +41,7 @@
   function verificarAutenticacion() {
     const usuario = localStorage.getItem('usuario');
     console.log(usuario);
-    if (!usuario && window.location.pathname !== '/register.html') {
+    if (!usuario && window.location.pathname !== '/register.html' && window.location.pathname !== '/login.html') {
       window.location.href = 'login.html'; // Redirigir al login si no está autenticado y no estamos en register.html
     }
   }
@@ -117,12 +117,6 @@
 
   
   
-  function verificarAutenticacion() {
-    const usuario = localStorage.getItem('usuario');
-    if (!usuario) {
-      window.location.href = 'login.html'; // Redirigir al login si no está autenticado
-    }
-  }
   
   function mostrarNombreUsuario() {
     const usuario = JSON.parse(localStorage.getItem('usuario'));
