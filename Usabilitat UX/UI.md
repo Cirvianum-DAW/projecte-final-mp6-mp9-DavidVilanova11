@@ -41,7 +41,7 @@
 
 ### Informe de Test de Usabilitat 2
 
-**Rol:** Usuari administrador  
+**Rol:** Usuari administrador  (user: usuari1@example.com, pwd: 12345678)
 **Edat usuari:** 50 anys  
 **Dispositiu:** Ordinador  
 **Data:** 06/01/2024 
